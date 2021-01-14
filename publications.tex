@@ -1,0 +1,36 @@
+\documentclass[onecolumn,a4paper,12pt]{article}
+\pagestyle{plain}
+\usepackage[margin=1.0cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+%\usepackage[anythingbreaks]{url}
+
+\usepackage[usenames]{xcolor}
+\newcommand{\blu}{\textcolor{blue} }
+\newcommand{\red}{\textcolor{red} }
+
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+
+\begin{document}
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{center}
+{\large\bf Refereed first-author publications}
+\end{center}
+
+\input{first_author}
+
+\begin{center}
+{\large\bf Refereed co-authored publications} 
+\end{center}
+
+\input{co_author}
+
+
+\end{document}

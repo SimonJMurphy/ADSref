@@ -1,0 +1,7 @@
+*.ipynb
+*.bib
+*.aux
+*.log
+*.out
+*.pdf
+*_author.tex
