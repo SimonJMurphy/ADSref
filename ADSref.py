@@ -51,7 +51,7 @@ def adsurl(bibcode):
 
 
 def latex_title_greek(title):
-    return title.replace("λ ","$\lambda$\,").replace("δ ","$\delta$\,").replace("γ ","$\gamma$\,").replace("ρ ","$\\rho$\,").replace("θ ","$\\theta$\,")
+    return title.replace("α","$\\alpha$\,").replace("β ","$\\beta$\,").replace("γ ","$\gamma$\,").replace("δ ","$\delta$\,").replace("θ ","$\\theta$\,").replace("κ ","$\kappa$\,").replace("λ ","$\lambda$\,").replace("μ ","$\mu$\,").replace("π ","$\pi$\,").replace("ρ ","$\\rho$\,").replace("τ ","$\\tau$\,").replace("ω ","$\omega$\,")
 
 
 def citation_formatter(cites):
