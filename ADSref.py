@@ -51,7 +51,10 @@ def adsurl(bibcode):
 
 
 def latex_title_greek(title):
-    return title.replace("α","$\\alpha$\,").replace("β ","$\\beta$\,").replace("γ ","$\gamma$\,").replace("δ ","$\delta$\,").replace("θ ","$\\theta$\,").replace("κ ","$\kappa$\,").replace("λ ","$\lambda$\,").replace("μ ","$\mu$\,").replace("π ","$\pi$\,").replace("ρ ","$\\rho$\,").replace("τ ","$\\tau$\,").replace("ω ","$\omega$\,")
+    greek_dict = {"α":"$\\alpha$", "β":"$\\beta$", "γ":"$\gamma$", "δ":"$\delta$", "ε":"$\epsilon$", "ζ":"$\zeta$", "η":"$\eta$", "ι":"$\iota$", "θ":"$\\theta$", "κ":"$\kappa$", "λ":"$\lambda$", "μ":"$\mu$", "ν":"$\\nu$", "ξ":"$\xi$", "π":"$\pi$", "ρ":"$\\rho$", "σ":"$\sigma$", "τ":"$\\tau$", "φ":"$\phi$", "χ":"$\chi$", "ψ":"$\psi$", "ω":"$\omega$"}
+    for key in greek_dict.keys():
+        title = title.replace(key, greek_dict[key])
+    return title
 
 
 def citation_formatter(cites):
