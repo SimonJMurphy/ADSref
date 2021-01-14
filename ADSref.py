@@ -120,4 +120,4 @@ export_latex("first_author.tex",output)
 export_latex("co_author.tex",co_output)
 
 print("\n\n.tex files prepared. Now run:\n")
-print("\t pdflatex publications.tex\n\n\n\n\n\n")
+print("\t pdflatex publications.tex\n\n\n")
