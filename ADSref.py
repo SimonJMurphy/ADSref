@@ -22,7 +22,7 @@ def extract_bibcodes(filename):
     
     # drop yCat, arxiv, PhDT, and other non-refereed entries
     # Workaround, since I couldn't get the API to accept property:refereed or property=refereed to work when searching
-    exclude = ['arXiv','yCat','PhDT','AAS','ASPC','BSRSL','conf','EPJWC','IAUFM','IAUGA','IAUS','prop']
+    exclude = ['arXiv','yCat','PhDT','AAS','ASPC','BSRSL','conf','EPJWC','IAUFM','IAUGA','IAUS','hst','iue','jwst','spzr','prop']
     
     for line in full_list:
         if line[0] == "@":
