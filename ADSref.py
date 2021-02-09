@@ -97,10 +97,12 @@ print("Parsing bibcodes...")
 bibcodes = extract_bibcodes(first_author)
 co_bibcodes = extract_bibcodes(co_author)
 
+
 # Search for papers and their attributes from bibcodes
-print("Searching the ADS API for papers... This may take a while if there are many entries...")
+print("Querying the ADS API for paper metadata... This may take a while if there are many entries...")
 papers = [list(ads.SearchQuery(bibcode=bibcode, fl=['bibcode', 'title', 'author', 'year', 'volume', 'page', 'citation_count']))[0] for bibcode in bibcodes]
 co_papers = [list(ads.SearchQuery(bibcode=bibcode, fl=['bibcode', 'title', 'author', 'year', 'volume', 'page', 'citation_count']))[0] for bibcode in co_bibcodes]
+
 
 # Remove Errata
 ## Because Ew. And if anyone cares about the paper content they'll discover errata when they visit the ADS pages.
@@ -112,6 +114,16 @@ for p in co_papers:
     if "Erratum" in p.title[0]:
         co_papers.remove(p)
 
+
+# Sum citations
+first_author_cites = 0
+co_author_cites = 0
+
+for p in papers:
+    first_author_cites += p.citation_count
+for p in co_papers:
+    co_author_cites += p.citation_count
+
 # Compile LaTeX string
 print("Compiling LaTeX strings...")
 output = latex_strings(papers)
@@ -121,6 +133,9 @@ co_output = latex_strings(co_papers)
 print("Exporting to LaTeX...")
 export_latex("first_author.tex",output)
 export_latex("co_author.tex",co_output)
+
+print(f"\nThere are {len(papers)} first-author papers, and {len(co_papers)} co-authored papers.")
+print(f"They have a total of {first_author_cites} and {co_author_cites} citations, respectively.")
 
 print("\n\n.tex files prepared. Now run:\n")
 print("\t pdflatex publications.tex\n\n\n")
