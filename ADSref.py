@@ -58,7 +58,9 @@ def latex_title_greek(title):
 
 
 def citation_formatter(cites):
-    if cites == 0:
+    if cites is None:
+        return ""
+    elif cites == 0:
         return ""
     else:
         if cites < 10:
@@ -120,9 +122,11 @@ first_author_cites = 0
 co_author_cites = 0
 
 for p in papers:
-    first_author_cites += p.citation_count
+    if p.citation_count is not None:
+        first_author_cites += p.citation_count
 for p in co_papers:
-    co_author_cites += p.citation_count
+    if p.citation_count is not None:
+        co_author_cites += p.citation_count
 
 # Compile LaTeX string
 print("Compiling LaTeX strings...")
