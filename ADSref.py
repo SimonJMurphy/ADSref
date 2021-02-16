@@ -108,12 +108,12 @@ co_papers = [list(ads.SearchQuery(bibcode=bibcode, fl=['bibcode', 'title', 'auth
 
 # Remove Errata
 ## Because Ew. And if anyone cares about the paper content they'll discover errata when they visit the ADS pages.
-print("Dropping Errata...")
+print("Dropping Errata, Corrigenda...")
 for p in papers:
-    if "Erratum" in p.title[0]:
+    if "Erratum" in p.title[0] or "Corrigendum" in p.title[0]:
         papers.remove(p)
 for p in co_papers:
-    if "Erratum" in p.title[0]:
+    if "Erratum" in p.title[0] or "Corrigendum" in p.title[0]:
         co_papers.remove(p)
 
 
